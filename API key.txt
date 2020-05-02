@@ -1,0 +1,3 @@
+key: bvpoh7UrKNALHQWarWfPQ
+secret: ODwDm1IHyDY3hpNLA84y7WPZprlgFjwi2feoiyeQ7h0
+DATABASE:postgres://jfcnofiarkhlaz:81edd2b3f0df95b8416468df9ce4823b5b86269a34ed5c60d7acaa208821f07f@ec2-3-222-150-253.compute-1.amazonaws.com:5432/d9qmk8c81ne5m5
