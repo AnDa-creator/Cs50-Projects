@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Recovered password
+{% endblock %}
+
+{% block heading %}
+See the password, if found:
+{% endblock %}
+
+{% block body %}
+{% if found==True %}
+<p class="text-success">Your Password is {{password}}</p>
+{% else %}
+<p class="text-danger">Your Password wasn't found, please register or use another username to login</p>
+{% endif %}
+<p> Login here: </p>
+<div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{ url_for('loginPage')}}">Login</a></button>
+</div>
+<div class = "col-md">
+<p> If you haven't already registered register here: </p>
+<button type="submit" class="btn btn-primary"><a href={{ url_for('index') }}><p class="text-light"> Register</p> </a> </button>
+</div>
+
+{% endblock %}

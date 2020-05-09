@@ -1,0 +1,29 @@
+{% extends 'SearchBooks.html' %}
+
+{% block list %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+	  <th scope="col">Publication</th>
+	  <th scope="col">Review link</th>
+    </tr>
+  </thead>
+  <tbody>
+	{% for item in items %}
+	  <tr>
+      <th scope="row">{{ loop.index }}</th>
+      <td>{{item[1]}}</td>
+      <td>{{item[2]}}</td>
+      <td>{{item[3]}}</td>
+	  <td>{{item[4]}}</td>
+	  <td><a href="{{ url_for('reviews', title=item[2])}}">{{item[5]}}</a></td>
+      </tr>
+	{% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

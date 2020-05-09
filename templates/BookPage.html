@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ name }}
+{% endblock %}
+
+{% block heading %}
+Hello, the name of the book you have chosen is {{ name }}
+{% endblock %}
+
+{% block body %}
+<p> You can add your review </p>
+<form action="{{ url_for('addreview') }}" method="post">
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+		<label class="input-group-text" for="inputGroupSelect01">Options</label>
+	  </div>
+	  <select name="select" class="custom-select" id="inputGroupSelect01">
+		<option name= selected value=1>1</option>
+		<option value=2>2</option>
+		<option value=3>3</option>
+		<option value=4>4</option>
+		<option value=5>5</option>
+	  </select>
+	  <br>
+	  <input name="attribute" type="text" aria-label="First name" class="form-control" placeholder="Type the attribute chosen">
+	</div>
+	<div class="btn-group" role="group" aria-label="Basic example">
+	<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+</form>
+  <div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{ url_for('loginPage')}}">LogOut</a></button>
+</div>
+  
+<p> Following data is found from our database: </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+	  <th scope="col">Publication</th>
+	  <th scope="col">Reviewer on this site</th>
+	  <th scope="col">Rating on this site</th>
+	  <th scope="col">Review on this site</th>
+	  <th scope="col">Goodreads rating count</th>
+	  <th scope="col">Goodreads average rating</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+	{% if found==False %}
+		<tr>
+		  <th scope="row">1</th>
+		  <td>{{item[1]}}</td>
+		  <td>{{item[2]}}</td>
+		  <td>{{item[3]}}</td>
+		  <td>{{item[4]}}</td>
+		  <td>NONE</td>
+		  <td>NONE</td>
+		  <td>NONE</td>
+		  <td>{{goodreads[0]}}</td>
+		  <td>{{goodreads[1]}}</td>
+		  </tr>
+	{% endif %}
+	{% for reviewdata in reviewAll %}
+	<tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{item[1]}}</td>
+      <td>{{item[2]}}</td>
+      <td>{{item[3]}}</td>
+	  <td>{{item[4]}}</td>
+	  <td>{{reviewdata[0]}}</td>
+	  <td>{{reviewdata[1]}}</td>
+	  <td>{{reviewdata[2]}}</td>
+	  <td>{{goodreads[0]}}</td>
+	  <td>{{goodreads[1]}}</td>
+      </tr>
+	{% endfor %}
+	
+  </tbody>
+  {% if found==False %}
+	<div class="p-3 mb-2 bg-info text-white">Sorry, no reviews found!! You may put one!!</div>
+  {% endif %}
+  
+
+{% endblock %}

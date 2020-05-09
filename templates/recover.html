@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Recover password
+{% endblock %}
+
+{% block heading %}
+Enter username in the box below
+{% endblock %}
+
+{% block body %}
+<form  action="{{ url_for('recover') }}" method="post">
+  <div  class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Get Password</button>
+</form>
+<p> OR TRY TO LOGIN AGAIN HERE: </p>
+<div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{ url_for('loginPage')}}">Login</a></button>
+</div>
+<div class = "col-md">
+<p> If you haven't already registered register here: </p>
+<button type="submit" class="btn btn-primary"><a href={{ url_for('index') }}><p class="text-light"> Register</p> </a> </button>
+</div>
+{% endblock %}

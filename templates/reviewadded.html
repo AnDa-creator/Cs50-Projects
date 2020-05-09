@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Submission Successful
+{% endblock %}
+
+{% block heading %}
+You have Submitted Successfully
+{% endblock %}
+
+{% block body %}
+Hi, if you haven't reviewed already, Review has been registered for book {{name}}.
+<div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{url_for('reviews', title=name)}}">go back</a></button>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{ url_for('loginPage')}}">LogOut</a></button>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{url_for('Searchagain')}}">Search again</a></button>
+</div>
+{% endblock %}

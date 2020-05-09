@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Registration Successful
+{% endblock %}
+
+{% block heading %}
+You have Registered Successfully
+{% endblock %}
+
+{% block body %}
+Hi, {{email}} has been registered
+<div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{ url_for('loginPage')}}">Login</a></button>
+</div>
+{% endblock %}

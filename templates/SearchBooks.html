@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Welcome {{name}}, You can search for books in the following three ways
+{% endblock %}
+
+{% block body %}
+<p class="text-info"> Please select one of the following methods to search for books</p>
+<form action="{{ url_for('listBooks') }}" method="post">
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+		<label class="input-group-text" for="inputGroupSelect01">Options</label>
+	  </div>
+	  <select name="select" class="custom-select" id="inputGroupSelect01">
+		<option name= selected>Choose...</option>
+		<option value="isbn">ISBN</option>
+		<option value="title">Title</option>
+		<option value="author">Author</option>
+	  </select>
+	  <br>
+	  <input name="attribute" type="text" aria-label="First name" class="form-control" placeholder="Type the attribute chosen">
+	</div>
+	<div class="btn-group" role="group" aria-label="Basic example">
+	<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+</form>
+<div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary"><a href="{{ url_for('loginPage')}}">LogOut</a></button>
+</div>
+{% block list %}
+{% endblock %}
+
+
+{% endblock %}
